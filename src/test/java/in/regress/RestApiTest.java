@@ -6,7 +6,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
 
-public class RestApiTest {
+public class RestApiTest extends BaseTest {
 
     @Test
     void successfullGetUserWithId3() {
@@ -15,7 +15,7 @@ public class RestApiTest {
                 .log().method()
                 .log().body()
                 .when()
-                .get("https://reqres.in/api/users/3")
+                .get("/users/3")
                 .then()
                 .log().status()
                 .log().body()
@@ -34,7 +34,7 @@ public class RestApiTest {
                 .log().method()
                 .log().body()
                 .when()
-                .get("https://reqres.in/api/users/23")
+                .get("/users/23")
                 .then()
                 .log().status()
                 .log().body()
@@ -51,7 +51,7 @@ public class RestApiTest {
                 .contentType(JSON)
                 .body(userData)
                 .when()
-                .post("https://reqres.in/api/users")
+                .post("/users")
                 .then()
                 .log().status()
                 .log().body()
@@ -67,7 +67,7 @@ public class RestApiTest {
                 .log().method()
                 .log().body()
                 .when()
-                .delete("https://reqres.in/api/users/2")
+                .delete("/users/2")
                 .then()
                 .log().status()
                 .log().body()
@@ -84,7 +84,7 @@ public class RestApiTest {
                 .contentType(JSON)
                 .body(userUpdateData)
                 .when()
-                .put("https://reqres.in/api/users/2")
+                .put("/users/2")
                 .then()
                 .log().status()
                 .log().body()
